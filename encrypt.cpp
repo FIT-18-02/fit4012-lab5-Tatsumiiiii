@@ -208,13 +208,15 @@ int main() {
 
 	// Write the encrypted string out to file "message.aes"
 	ofstream outfile;
-	outfile.open("message.aes", ios::out | ios::binary);
-	if (outfile.is_open())
-	{
-		outfile << encryptedMessage;
-		outfile.close();
-		cout << "Wrote encrypted message to file message.aes" << endl;
-	}
+outfile.open("message.aes", ios::out | ios::binary);
+
+if (outfile.is_open())
+{
+    outfile.write((char*)encryptedMessage, paddedMessageLen);
+    outfile.close();
+
+    cout << "Wrote encrypted message to file message.aes" << endl;
+}
 
 	else cout << "Unable to open file";
 

@@ -10,10 +10,6 @@
 
 using namespace std;
 
-/* Used in Round() and serves as the final round during decryption
- * SubRoundKey is simply an XOR of a 128-bit block with the 128-bit key.
- * So basically does the same as AddRoundKey in the encryption
- */
 void SubRoundKey(unsigned char * state, unsigned char * roundKey) {
 	for (int i = 0; i < 16; i++) {
 		state[i] ^= roundKey[i];
